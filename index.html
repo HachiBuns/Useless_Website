@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#052b43">
+    <meta name="description" content="A tiny interactive aquarium. Choose a sea creature and see where it swims.">
+    <title>Choose a Sea Creature</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <main class="aquarium" id="aquarium">
+      <div class="water-glow" aria-hidden="true"></div>
+      <div class="light-rays" aria-hidden="true"></div>
+      <div class="particle-field" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="bubble-field" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+
+      <header class="topbar">
+        <a class="wordmark" href="#aquarium" aria-label="Little Blue aquarium home">
+          <span class="wordmark-dot" aria-hidden="true"></span>
+          Website made by Joana Carmona Pinto
+        </a>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Move your pointer to lead the way <span aria-hidden="true">·</span> click to catch</p>
+        <h1 id="page-title">Choose a Sea Creature</h1>      
+      </section>
+
+      <aside class="encounter-card" aria-live="polite">
+        <span class="encounter-icon" aria-hidden="true">↗</span>
+        <span><strong id="encounter-count">0</strong><small>CAUGHT!</small></span>
+      </aside>
+
+      <section class="tank" id="tank" aria-label="Interactive aquarium. Move your pointer to guide the creature.">
+        <div class="waterline" aria-hidden="true"></div>
+        <div class="creature-glow" id="creature-glow" aria-hidden="true"></div>
+        <canvas
+          class="creature"
+          id="creature"
+          width="48"
+          height="48"
+          tabindex="0"
+          role="img"
+          aria-label="Fish swimming in the aquarium"
+          title="Click your creature to see it dodge"
+        ></canvas>
+      </section>
+
+      <div class="seaweed seaweed-left" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="seaweed seaweed-right" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="coral coral-left" aria-hidden="true"></div>
+      <div class="coral coral-right" aria-hidden="true"></div>
+      <div class="sand" aria-hidden="true"></div>
+
+      <footer class="controls">
+        <div class="creature-picker" role="group" aria-label="Choose a sea creature">
+          <button class="creature-choice is-selected" type="button" data-creature="fish" aria-pressed="true">
+            <span class="choice-mark mark-fish" aria-hidden="true"></span>
+            <span>Fish</span>
+            <span class="choice-check" aria-hidden="true">✓</span>
+          </button>
+          <button class="creature-choice" type="button" data-creature="shark" aria-pressed="false">
+            <span class="choice-mark mark-shark" aria-hidden="true"></span>
+            <span>Shark</span>
+            <span class="choice-check" aria-hidden="true">✓</span>
+          </button>
+          <button class="creature-choice" type="button" data-creature="octopus" aria-pressed="false">
+            <span class="choice-mark mark-octopus" aria-hidden="true"></span>
+            <span>Octopus</span>
+            <span class="choice-check" aria-hidden="true">✓</span>
+          </button>
+        </div>
+        <p class="loading-status" id="loading-status" role="status" aria-live="polite"></p>
+      </footer>
+    </main>
+  </body>
+</html>
